@@ -4,8 +4,7 @@
 #include <ArduinoOTA.h>
 #include "settings.h"
 
-const char *ssid = "TWANG_AP";
-const char *passphrase = "12345678";
+#include "Secrets.h"
 
 WiFiServer server(80);
 
@@ -46,7 +45,7 @@ void ap_setup()
 	ArduinoOTA.setHostname("twang32");
 
 	//   No authentication by default
-	ArduinoOTA.setPassword("12345678");
+	ArduinoOTA.setPassword(otapassword);
 
 	ArduinoOTA
 		.onStart([]()
